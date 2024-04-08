@@ -144,6 +144,6 @@ const updateDrinkInfo = (index) => {
   document.querySelector('h3').innerText = drinks[index].strInstructions;
 };
 
-// Attach event listeners to the buttons
+// Attach event listeners to the next and previous slide buttons
 nextButton.addEventListener('click', moveToNextSlide);
 prevButton.addEventListener('click', moveToPrevSlide);
