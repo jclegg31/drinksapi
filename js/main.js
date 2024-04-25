@@ -31,7 +31,7 @@ function getDrink() {
       //The drinks array from the API response is stored in the drinks variable.
       const drinks = data.drinks;
 
-      //Clear previous slides from the track (the ul element)
+      //Clear previous slides from the track (the ul element).
       //to avoid stacking images on each search.
       track.innerHTML = '';
 
