@@ -47,22 +47,22 @@ h3 {
 }
 
 .carousel__track-container {
-  /* background: lightgreen; */
-  height: 100%;
+  overflow: hidden; /* Hide the scroll bar */
   position: relative;
+  width: 100%; /* Ensure the container takes up the full width */
 }
 
 .carousel__track {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  display: flex;
+  transition: transform 0.5s ease;
+  list-style: none; /* Remove default list style */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
 }
 
 .carousel__slide {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
+  min-width: 100%; /* Each slide takes up the full width of the container */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 .carousel__btn {
