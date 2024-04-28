@@ -10,18 +10,32 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
+
 img {
   display: block;
   margin: 0 auto;
   max-height: 200px;
 }
+h1,
+input {
+  margin-left: 50px;
+}
+h2,
+h3 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
 .carousel {
   position: relative;
-  height: 600px;
+  height: 200px;
   width: 80%;
   margin: 0 auto;
 }
@@ -33,7 +47,7 @@ img {
 }
 
 .carousel__track-container {
-  background: lightgreen;
+  /* background: lightgreen; */
   height: 100%;
   position: relative;
 }
@@ -70,23 +84,4 @@ img {
 
 .carousel__btn img {
   width: 50px;
-}
-
-.carousel__nav {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-}
-
-.carousel__indicator {
-  border: 0;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  background: rgba(0, 0, 0, 0.3);
-  margin: 0 15px;
-}
-
-.carousel__indicator.current-slide {
-  background: rgba(0, 0, 0, 0.75);
 }

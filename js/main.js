@@ -8,10 +8,8 @@ const track = document.querySelector('.carousel__track');
 const nextButton = document.querySelector('.carousel__button--right');
 const prevButton = document.querySelector('.carousel__button--left');
 
-//Grabs the element that contains the carousel navigation dots
-//and store its children (the individual dots) in the dots variable as an array.
-const dotsNav = document.querySelector('.carousel__nav');
-const dots = Array.from(dotsNav.children);
+let currentSlideIndex = 0; //to keep track of the current slide
+let drinks = []; //to store drink data
 
 //event listener on drink button (kicks off getting data) by calling getDrink function
 document.querySelector('button').addEventListener('click', getDrink);
@@ -29,7 +27,7 @@ function getDrink() {
     .then((res) => res.json()) //parse response as JSON
     .then((data) => {
       //The drinks array from the API response is stored in the drinks variable.
-      const drinks = data.drinks;
+      drinks = data.drinks; //store drink data
 
       //Clear previous slides from the track (the ul element).
       //to avoid stacking images on each search.
@@ -95,13 +93,57 @@ making them look neat and organized.*/
         use your helper function to tell each frame where to go on the wall. This
         way they all line up nicely without overlapping*/
         slides.forEach(setSlidePosition);
-      }
 
-      document.querySelector('h2').innerText = data.drinks[0].strDrink;
+        //update name and instructions for each drink
+        updateDrinkInfo(currentSlideIndex);
+      }
+      //   document.querySelector('h2').innerText = data.drinks[0].strDrink;
       document.querySelector('img').src = data.drinks[0].strDrinkThumb;
-      document.querySelector('h3').innerText = data.drinks[0].strInstructions;
+      //   document.querySelector('h3').innerText = data.drinks[0].strInstructions;
     })
     .catch((err) => {
       console.log(`error ${err}`);
     });
 }
+
+// Move to the next slide
+const moveToNextSlide = () => {
+  const slides = Array.from(track.children);
+  const slideWidth = slides[0].getBoundingClientRect().width;
+
+  // Calculate new slide index
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+
+  // Move the track to show the next slide
+  const amountToMove = -slideWidth * currentSlideIndex;
+  track.style.transform = `translateX(${amountToMove}px)`;
+
+  // Update the h2 and h3 with the current drink's information
+  updateDrinkInfo(currentSlideIndex);
+};
+
+// Move to the previous slide
+const moveToPrevSlide = () => {
+  const slides = Array.from(track.children);
+  const slideWidth = slides[0].getBoundingClientRect().width;
+
+  // Calculate new slide index
+  currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+
+  // Move the track to show the previous slide
+  const amountToMove = -slideWidth * currentSlideIndex;
+  track.style.transform = `translateX(${amountToMove}px)`;
+
+  // Update the h2 and h3 with the current drink's information
+  updateDrinkInfo(currentSlideIndex);
+};
+
+// Update the h2 and h3 with the current drink's information
+const updateDrinkInfo = (index) => {
+  document.querySelector('h2').innerText = drinks[index].strDrink;
+  document.querySelector('h3').innerText = drinks[index].strInstructions;
+};
+
+// Attach event listeners to the buttons
+nextButton.addEventListener('click', moveToNextSlide);
+prevButton.addEventListener('click', moveToPrevSlide);
