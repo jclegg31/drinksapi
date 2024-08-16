@@ -3,6 +3,9 @@
 
 document.querySelector('button').addEventListener('click', getDrink);
 
+//Once the button is clicked, retrieve the input the user
+//entered and plug it into the API to get the corresponding drink
+//*** USE THIS API FETCH FOR NOW ***/
 function getDrink() {
   let drink = document.querySelector('input').value;
 
