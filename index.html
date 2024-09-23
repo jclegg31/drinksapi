@@ -6,42 +6,28 @@
 	<meta name="description" content="This is where your description goes">
 	<meta name="keywords" content="one, two, three">
 
-	<title>Title in the tab</title>
+	<title>Pokemon Pet Checker</title>
 
 	<!-- external CSS link -->
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
 
-	<!-- Font Awesome for arrows -->
+	<!-- Font Awesomes -->
 	<script src="https://kit.fontawesome.com/a3f11998f4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-	<h1>Which Cocktail?</h1>
+	<h1>Would This Pokemon Make a Good Pet?</h1>
 	<input type="text" name="" value="">
-	<button id="cocktail" type="button" name="button">Get Cocktail</button>
+	<button id="cocktail" type="button" name="button">Check it!</button>
 
-	<h2>Name</h2>
-	<!-- Main carousel to hold all the images -->
-	<div class="carousel">
-		<button class="carousel__btn carousel__button--left">
-			<i class="fa-solid fa-chevron-left"></i>
-		</button>
-		<div class="carousel__track-container">
-			<ul class="carousel__track">
-				<!-- <li class="carousel__slide">
-					<img src="" alt="">
-				</li> -->
-
-			</ul>
-		</div>
-		<button class="carousel__btn carousel__button--right">
-			<i class="fa-solid fa-chevron-right"></i>
-		</button>
-
-	</div>
-
-	<h3>Instructions</h3>
+	<h2>Enter a Pokemon in the box above and click the button to find out! We'll check its height, 
+		weight, and associated type(s) to make sure it is safe for your home!
+	</h2>
+	<h3 id="locations"></h3>
+	<img src="img/pokemon1.jpg" alt="">
+	<h3>The following types are considered "dangerous": 'fire', 'electric', 'fighting', 'poison', 'ghost'.</h3>
+	<h3>A height over 7 feet and a weight of more than 400 pounds are not considered suitable for a pet.</h3>
 
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
