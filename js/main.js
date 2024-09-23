@@ -15,7 +15,7 @@ function getFetch(){
       potentialPet.getTypes()
       potentialPet.isItHousePet()
 
-
+//
       let decision = ''
       if (potentialPet.housepet){
         decision = `This Pokemon is small enough, light enough and safe enough to be a good pet! You can find ${potentialPet.name} in the following location(s): `
